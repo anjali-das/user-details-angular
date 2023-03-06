@@ -1,0 +1,38 @@
+<h2 class="text-center">Contact Details</h2>
+<form>
+    <div class="mt-3">
+        <input style="width: 40%;" name="search" type="text" [(ngModel)]="searchContact" class="form-control"
+            placeholder="Search contact Here">
+    </div>
+</form>
+
+<div class="container mt-3">
+    <table class="table table-bordered table text-center">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Company Name</th>
+                <th>Job Title</th>
+            </tr>
+
+        </thead>
+        <tbody id="result">
+            <tr *ngFor=" let users of allUsers |filter : searchContact:'name' ">
+                <td>{{users.firstName}} {{users.lastName}}</td>
+                <td><img width="100px" height="100px" src="{{users.image}}" alt=""></td>
+                <td>{{users.age}}</td>
+                <td>{{users.email}}</td>
+                <td>{{users.phone}}</td>
+                <td>{{users.address.address}} , {{users.address.state}}</td>
+                <td>{{users.company.name}}</td>
+                <td>{{users.company.title}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
